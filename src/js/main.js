@@ -52,14 +52,17 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 // ** Begin Location by IP ** //
-var userLocation = $.ajax({
+// Establish variable to hold latitude and longitude for use in Open Weather
+var userLocation = []
+
+// Make ajax request to get latitude and longitude
+$.ajax({
   url: 'http://freegeoip.net/json/',
   method: 'GET',
   success: function(data) {
     console.log(data);
-    var userLatLong = [data.latitude, data.longitude];
-    console.log(userLatLong);
-    return userLatLong
+    userLocation.push(data.latitude);
+    userLocation.push(data.longitude);
   }
 });
 // ** End Location by IP ** //
