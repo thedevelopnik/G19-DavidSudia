@@ -52,7 +52,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 // ** Begin Location by IP ** //
-
+var userLocation = $.ajax({
+  url: 'http://freegeoip.net/json/',
+  method: 'GET',
+  success: function(data) {
+    console.log(data);
+    var userLatLong = [data.latitude, data.longitude];
+    console.log(userLatLong);
+    return userLatLong
+  }
+});
 // ** End Location by IP ** //
 
 
