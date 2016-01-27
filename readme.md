@@ -11,15 +11,15 @@ The site will make use of several languages and services. I will construct the m
 
 This feature will display:
 
-*Current temperature
+- Current temperature
 
-*Current weather conditions (Sunny, cloudy, etc)
+- Current weather conditions (Sunny, cloudy, etc)
 
-    *Icon for conditions
+  - Icon for conditions
 
-*Five day forecast
+- Five day forecast
 
-The page will collect the user's latitude and longitude using an IP-based geolocation API. It will feed this data to the OpenWeather API, which will return a JSON object of the above data. The data will then display in a <div>. I will use a jQuery AJAX request to complete these calls.
+The page will collect the user's latitude and longitude using an IP-based geolocation API. It will feed this data to the OpenWeather API, which will return a JSON object of the above data. The data will then display in a div. I will use a jQuery AJAX request to complete these calls.
 
 ### Local traffic
 
