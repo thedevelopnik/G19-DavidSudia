@@ -64,10 +64,23 @@ jQuery(document).ready(function () {
       console.log(data);
       userLocation.push(Math.round(data.latitude));
       userLocation.push(Math.round(data.longitude));
+      // GET RID OF THIS ONCE I LEARN PROMISES
+      $.ajax({
+        url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + userLocation[0] + '&lon=' + userLocation[1] + '&units=imperial&APPID=9f5029722e8e1dc6107a41111a2ee906',
+        method: 'GET',
+        success: function(data) {
+          console.log(data);
+          currentTemp.push(Math.round(data['main']['temp']));
+          currentHumid.push(Math.round(data['main']['humidity']));
+          todayLow.push(Math.round(data['main']['temp_min']));
+          todayHigh.push(Math.round(data['main']['temp_max']));
+          todayCondition.push(Math.round(data['weather']['description']));
+          todayIcon.push(Math.round(data['weather']['icon']));
+        }
+      });
     }
   });
 });
-
 // ** End Location by IP ** //
 
 
@@ -81,23 +94,22 @@ var todayCondition = [];
 var todayIcon = [];
 
 //AJAX call for today's weather conditions
-jQuery(document).ready(function () {
-  console.log('sanity check');
-  $.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + 40 + '&lon=' + -105 + '&units=imperial&APPID=9f5029722e8e1dc6107a41111a2ee906',
-    method: 'GET',
-    success: function(data) {
-      console.log(data);
-      currentTemp.push(Math.round(data['main']['temp']));
-      currentHumid.push(Math.round(data['main']['humidity']));
-      todayLow.push(Math.round(data['main']['temp_min']));
-      todayHigh.push(Math.round(data['main']['temp_max']));
-      todayCondition.push(Math.round(data['weather']['description']));
-      todayIcon.push(Math.round(data['weather']['icon']));
-    }
-  });
-});
-
+//  FIX THIS ONCE I LEARN PROMISES
+//  function openWeather () {
+//   $.ajax({
+//     url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + userLocation[0] + '&lon=' + userLocation[1] + '&units=imperial&APPID=9f5029722e8e1dc6107a41111a2ee906',
+//     method: 'GET',
+//     success: function(data) {
+//       console.log(data);
+//       currentTemp.push(Math.round(data['main']['temp']));
+//       currentHumid.push(Math.round(data['main']['humidity']));
+//       todayLow.push(Math.round(data['main']['temp_min']));
+//       todayHigh.push(Math.round(data['main']['temp_max']));
+//       todayCondition.push(Math.round(data['weather']['description']));
+//       todayIcon.push(Math.round(data['weather']['icon']));
+//     }
+//   });
+// }
 // ** End Open Weather ** //
 
 
