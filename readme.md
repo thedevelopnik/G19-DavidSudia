@@ -3,6 +3,8 @@
 ## Uses and Users
 My project is a daily dashboard site to aid productivity. Its use is like the "Today" section of iOS' notification center. It displays local weather and traffic information, and the user's calendar and tasks. Users can visit the site to plan their day. They see information based on location and personal input. The site is useful to people who are at a computer most of the day who want quick access to relevant information.
 
+![site mockup](./mockup1.png)
+
 ## Technologies Involved
 The site will make use of several languages and services. I will construct the main page using HTML and CSS, using Bootstrap to support the layout. The weather feature will use an IP-based geolocation API and the OpenWeather API. I will use Postman to help create the GET request. The traffic feature will use the Google Maps API with geolocation and a traffic layer added on. The calendar feature will use a Google authentication API. Finally, the to-do list will use jQuery for DOM manipulation.
 
