@@ -93,6 +93,20 @@ var todayHigh = [];
 var todayCondition = [];
 var todayIcon = [];
 
+//Put variable values into DOM
+jQuery(document).ready(function () {
+  var weatherP1 = $('#weather p:first-child');
+  var weatherP2 = $(weatherP1).next;
+  var weatherP3 = $(weatherP2).next;
+  var weatherP4 = $(weatherP3).next;
+  var weatherP5 = $(weatherP4).next
+  $(weatherP1).html('The current temperature is ' + currentTemp[0] + 'degrees Fahrenheit');
+  $(weatherP2).html('Today\'s low temperature is ' + todayLow[0] + ' degrees Fahrenheit');
+  $(weatherP3).html('Today\'s high temperature is ' + todayHigh[0] + ' degrees Fahrenheit');
+  $(weatherP4).html('The current humidity level is ' + todayHigh[0] + '%');
+  $(weatherP5).html('The current weather condition is ' + todayCondition[0] + ' ' + <img alt=todayCondition[0] src='http://openweathermap.org/img/w/' + todayIcon[0]);
+});
+
 //AJAX call for today's weather conditions
 //  FIX THIS ONCE I LEARN PROMISES
 //  function openWeather () {
