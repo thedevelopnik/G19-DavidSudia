@@ -56,19 +56,47 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 var userLocation = []
 
 // Make ajax request to get latitude and longitude
-$.ajax({
-  url: 'http://freegeoip.net/json/',
-  method: 'GET',
-  success: function(data) {
-    console.log(data);
-    userLocation.push(data.latitude);
-    userLocation.push(data.longitude);
-  }
+jQuery(document).ready(function () {
+  $.ajax({
+    url: 'http://freegeoip.net/json/',
+    method: 'GET',
+    success: function(data) {
+      console.log(data);
+      userLocation.push(Math.round(data.latitude));
+      userLocation.push(Math.round(data.longitude));
+    }
+  });
 });
+
 // ** End Location by IP ** //
 
 
 // ** Begin Open Weather ** //
+// Establish variables to retrieve from AJAX call
+var currentTemp = [];
+var currentHumid = [];
+var todayLow = [];
+var todayHigh = [];
+var todayCondition = [];
+var todayIcon = [];
+
+//AJAX call for today's weather conditions
+jQuery(document).ready(function () {
+  console.log('sanity check');
+  $.ajax({
+    url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + 40 + '&lon=' + -105 + '&units=imperial&APPID=9f5029722e8e1dc6107a41111a2ee906',
+    method: 'GET',
+    success: function(data) {
+      console.log(data);
+      currentTemp.push(Math.round(data['main']['temp']));
+      currentHumid.push(Math.round(data['main']['humidity']));
+      todayLow.push(Math.round(data['main']['temp_min']));
+      todayHigh.push(Math.round(data['main']['temp_max']));
+      todayCondition.push(Math.round(data['weather']['description']));
+      todayIcon.push(Math.round(data['weather']['icon']));
+    }
+  });
+});
 
 // ** End Open Weather ** //
 
@@ -81,7 +109,3 @@ $.ajax({
 // ** Begin Todo List ** //
 
 // ** End Todo List ** //
-
-$(document).on('ready', function() {
-  console.log('sanity check!');
-});
