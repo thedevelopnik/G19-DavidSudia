@@ -41,5 +41,9 @@ The page will display a user's calendar events for that day. This feature requir
 
 This feature allows users to plan their to-dos for the day. It uses the 1-3-5 method of task planning. This method encourages a person to do 1 big task, 3 medium tasks, and 5 small tasks per day. Users can enter a task name into a text input and choose its size from a menu. When they submit the task, it will appear on the page. The physical size of the task will be a relative to its to-do "size." When the user clicks on a to-do, it will disappear from the page and other to-dos will collapse into the space. The page will keep to-dos in a JSON object in Local Storage. That way users can access to-dos they did not check off the next day.
 
+### Customizability
+
+A stretch goal for this project will be to make each of the above features a widget that the user can selectively show and hide using a nav bar at the top of the page. Once I've achieved that, I will add start adding more widgets.
+
 ## Project Tracking
 On this project's [Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/1524159)
