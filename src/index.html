@@ -39,25 +39,33 @@
       </div>
     </div>
 
-    <div class='row'>
-      <div class='col-md-1'>
-      </div>
-      <div class='col-md-10'>
-        <div id='my-signin2' data-onsuccess="onSignIn">
+    <div class='container-fluid'>
+      <div class='row'>
+        <div class='col-md-1'>
         </div>
-        <a href='#' onclick='signOut();'>Sign out</a>
-      </div>
-      <div class='col-md-1'>
+        <div class='col-md-10'>
+          <div id="authorize-div">
+            <span>Authorize access to Google Calendar API</span>
+            <!--Button for the user to click to initiate auth sequence -->
+            <button id="authorize-button" onclick="handleAuthClick(event)">
+              Authorize
+            </button>
+          </div>
+          <pre id="output"></pre>
+          <a href='#' onclick='signOut();'>Sign out</a>
+        </div>
+        <div class='col-md-1'>
+        </div>
       </div>
     </div>
 
     <div class='row'>
-      <div class='col-md-3'>
+      <div class='col-md-2'>
       </div>
-      <div class='col-md-9'>
-      <!-- form for entering todos goes here -->
+      <div class='col-md-8'>
+       <!-- Todos go here -->
       </div>
-      <div class='col-md-3'>
+      <div class='col-md-2'>
       </div>
     </div>
 
@@ -73,7 +81,7 @@
 
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4VfH8HaR0oIwXR81awWPGxwUej85hZA&signed_in=true&callback=initMap"
         async defer></script>
     <script type='text/javascript' src='js/main.js'></script>
