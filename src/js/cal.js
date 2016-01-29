@@ -93,6 +93,12 @@ function listUpcomingEvents() {
  *
  * @param {string} message Text to be placed in pre element.
  */
+
+function convertDate(date) {
+ var newDate = '';
+
+}
+
 function appendPre(message) {
   var pre = document.getElementById('output');
   var textContent = document.createTextNode(message + '\n');
