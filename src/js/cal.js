@@ -23,7 +23,7 @@ function handleAuthResult(authResult) {
   var authorizeDiv = document.getElementById('authorize-div');
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
-    // authorizeDiv.style.display = 'none';
+    authorizeDiv.style.display = 'none';
     loadCalendarApi();
   } else {
     // Show auth UI, allowing the user to initiate authorization by
@@ -69,19 +69,26 @@ function listUpcomingEvents() {
 
   request.execute(function(resp) {
     var events = resp.items;
-    appendPre('Upcoming events:');
-
+    appendCalList('Your upcoming events:');
+    function convertDate(date) {
+      var dateStr = date.toString();
+      var formattedDate = new Date(dateStr);
+      var forDateStr = formattedDate.toString();
+      var dateTime = forDateStr.slice(0, 21);
+      return dateTime;
+    }
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
-        var when = event.start.dateTime;
+        var when = event.start.date;
         if (!when) {
-          when = event.start.date;
+          when = event.start.dateTime;
+          var eventDate = convertDate(when);
         }
-        appendPre(event.summary + ' (' + when + ')');
+        appendCalList(event.summary + ' (' + eventDate + ')');
       }
     } else {
-      appendPre('No upcoming events found.');
+      appendCalList('No upcoming events found.');
     }
 
   });
@@ -94,13 +101,11 @@ function listUpcomingEvents() {
  * @param {string} message Text to be placed in pre element.
  */
 
-function convertDate(date) {
- var newDate = '';
 
-}
 
-function appendPre(message) {
-  var pre = document.getElementById('output');
-  var textContent = document.createTextNode(message + '\n');
-  pre.appendChild(textContent);
+function appendCalList(message) {
+  var art = document.getElementById('output');
+  var newListItem = document.createElement('p');
+  newListItem.innerHTML = message;
+  art.appendChild(newListItem);
 }
