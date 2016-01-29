@@ -16,6 +16,14 @@ $(document).ready(function () {
   });
 });
 
+// Icon clicks to create widgets
+
+$(document).ready(function () {
+  $('#btn-map').on('click', createMapWidget(newDiv));
+  $('#btn-weather').on('click', createWeatherWidget(newDiv));
+  $('#btn-cal').on('click', createCalendarWidget(newDiv));
+});
+
 // Functions for creating each widget
 
 function createMapWidget(newGridItem) {
@@ -36,6 +44,7 @@ function createWeatherWidget(newGridItem) {
   newGridItem.className = 'grid-item widgetBox';
   newGridItem.id = 'weather';
   newGridItem.innerHTML = weatherHTML;
+  msnry.layout();
 }
 
 function createTodoWidget(newGridItem) {

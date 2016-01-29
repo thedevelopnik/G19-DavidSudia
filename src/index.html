@@ -9,8 +9,12 @@
   </head>
 
   <body>
-    <header class='box-shadow'>
-      <h1>Welcome to HQ</h1>
+    <header class='container'>
+      <img id='btn-map' class='icon flex-grow' src='./img/maps-icon.png'>
+      <img id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'>
+      <h1 class='flex-grow'>Welcome to HQ</h1>
+      <img id='btn-cal' class='icon flex-grow' src='./img/calendar-icon.png'>
+      <img id='btn-todo' class='icon flex-grow' src='./img/todo-icon.png'>
     </header>
 
     <div id='main-grid' class='grid'>
@@ -36,8 +40,9 @@
       </div>
     </div>
 
+
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
-    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4VfH8HaR0oIwXR81awWPGxwUej85hZA&signed_in=true&callback=initMap"
         async defer></script>
