@@ -1,3 +1,6 @@
+var calHTML = '<div id="authorize-div"><span>Authorize access to Google Calendar API</span><!--Button for the user to click to initiate auth sequence --><button id="authorize-button" onclick="handleAuthClick(event)">Authorize</button></div><article id="output"></article></div>';
+
+
 var CLIENT_ID = '723061971439-dv1pbtq741e2dk5n05psbrnufa99p4cj';
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];

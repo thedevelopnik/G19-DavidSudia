@@ -20,7 +20,7 @@
       <div class='row top-margin'>
         <div class='col-md-1'>
         </div>
-        <div class='col-md-4 box-shadow widgetBox' id='weather'>
+        <div class='col-md-4 box-shadow' id='weather'>
         <h2>Weather</h2>
           <p id='temp'>Temp</p>
           <p id='low'>Low</p>
@@ -41,29 +41,18 @@
       </div>
     </div>
 
-    <div class='container-fluid'>
-      <div class='row top-margin'>
-        <div class='col-md-1'>
-        </div>
-        <div class='col-md-4 box-shadow widgetBox'>
-          <div id="authorize-div">
-            <span>Authorize access to Google Calendar API</span>
-            <!--Button for the user to click to initiate auth sequence -->
-            <button id="authorize-button" onclick="handleAuthClick(event)">
-              Authorize
-            </button>
-          </div>
-            <article id="output"></article>
-          </div>
-        <div class='col-md-1'>
-        </div>
+    <div class='grid-item--width-2'>
+      <div id="authorize-div">
+        <span>Authorize access to Google Calendar API</span>
+        <!--Button for the user to click to initiate auth sequence -->
+        <button id="authorize-button" onclick="handleAuthClick(event)">
+          Authorize
+        </button>
       </div>
+        <article id="output"></article>
     </div>
 
-    <div class='row'>
-      <div class='col-md-1'>
-      </div>
-      <div class='col-md-10'>
+    <div class='grid-item--width-3'>
         <h2>Get Your Shit Together</h2>
         <hr><br>
 
@@ -77,19 +66,9 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-      </div>
-      <div class='col-md-1'>
-      </div>
-    </div>
-
-    <div id='beforeTodos' class='row'>
-      <div class='col-md-1'>
-      </div>
-      <div class='col-md-10'>
+      <div id='beforeTodos'>
         <h3>Your todos</h3>
         <hr>
-      </div>
-      <div class='col-md-1'>
       </div>
     </div>
 

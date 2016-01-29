@@ -6,11 +6,7 @@ var header = document.getElementsByTagName('header')[0];
 
 var grid = document.getElementById('main-grid');
 
-var gridItemSml = '<div class="grid-item"></div>';
-
-var gridItemMed = '<div class="grid-item--width-2"></div>';
-
-var gridItemLg = '<div class="grid-item--widht-3"></div>';
+var newDiv = document.createElement('div');
 
 function removeWidget() {
 
@@ -18,19 +14,24 @@ function removeWidget() {
 
 // Functions for creating each widget
 
-function createMapWidget() {
-  grid.appendChild(gridItemMed);
-
+function createMapWidget(newGridItem) {
+  newGridItem.id = 'map';
+  newGridItem.className = 'grid-item--width-2';
+  newGridItem.innerHTML = '<h2>Traffic</h2>';
+  grid.appendChild(newGridItem);
 }
 
-function createTodoWidget() {
-
+function createCalendarWidget(newGridItem) {
+  newGridItem.className = 'grid-item--width-2';
+  newGridItem.innerHTML = calHTML;
 }
 
 function createWeatherWidget() {
 
 }
 
-function createCalendarWidget() {
-
+function createTodoWidget(newGridItem) {
 }
+
+
+
