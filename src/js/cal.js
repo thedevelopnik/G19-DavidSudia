@@ -69,12 +69,16 @@ function listUpcomingEvents() {
 
   request.execute(function(resp) {
     var events = resp.items;
+    var newDate = ''
     appendPre('Upcoming events:');
-
+    function convertDate(date) {
+      newDate = date.slice(5, 8) + date.slice(8, 10) + '-' + date.slice(0, 4) + ' ' + date.slice(11, 16);
+    }
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
         var when = event.start.dateTime;
+        when = convertDate(when);
         if (!when) {
           when = event.start.date;
         }
@@ -94,10 +98,7 @@ function listUpcomingEvents() {
  * @param {string} message Text to be placed in pre element.
  */
 
-function convertDate(date) {
- var newDate = '';
 
-}
 
 function appendPre(message) {
   var pre = document.getElementById('output');
