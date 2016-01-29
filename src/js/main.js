@@ -8,26 +8,34 @@ var grid = document.getElementById('main-grid');
 
 var newDiv = document.createElement('div');
 
-function removeWidget() {
-
-}
+// Enable widget removal
+$(document).ready(function () {
+  $('.widgetBox').on('click', function() {
+    this.remove();
+    $grid.masonry();
+  });
+});
 
 // Functions for creating each widget
 
 function createMapWidget(newGridItem) {
   newGridItem.id = 'map';
-  newGridItem.className = 'grid-item--width-2';
+  newGridItem.className = 'grid-item--width-2 widgetBox';
   newGridItem.innerHTML = '<h2>Traffic</h2>';
   grid.appendChild(newGridItem);
+  msnry.layout();
 }
 
 function createCalendarWidget(newGridItem) {
-  newGridItem.className = 'grid-item--width-2';
+  newGridItem.className = 'grid-item--width-2 widgetBox';
   newGridItem.innerHTML = calHTML;
+  msnry.layout();
 }
 
-function createWeatherWidget() {
-
+function createWeatherWidget(newGridItem) {
+  newGridItem.className = 'grid-item widgetBox';
+  newGridItem.id = 'weather';
+  newGridItem.innerHTML = weatherHTML;
 }
 
 function createTodoWidget(newGridItem) {

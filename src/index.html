@@ -16,42 +16,6 @@
     <div id='main-grid' class='grid'>
     </div>
 
-    <div class='container-fluid'>
-      <div class='row top-margin'>
-        <div class='col-md-1'>
-        </div>
-        <div class='col-md-4 box-shadow' id='weather'>
-        <h2>Weather</h2>
-          <p id='temp'>Temp</p>
-          <p id='low'>Low</p>
-          <p id='high'>High</p>
-          <p id='humid'>Humidity</p>
-          <p id='condition'>Condition</p>
-          <div id='weather-icon'></div>
-        </div>
-        <div class='col-md-2'>
-        </div>
-        <div class='col-md-4 box-shadow widgetBox'>
-          <h2>Traffic</h2>
-          <div id='map'>
-          </div>
-        </div>
-        <div class='col-md-1'>
-        </div>
-      </div>
-    </div>
-
-    <div class='grid-item--width-2'>
-      <div id="authorize-div">
-        <span>Authorize access to Google Calendar API</span>
-        <!--Button for the user to click to initiate auth sequence -->
-        <button id="authorize-button" onclick="handleAuthClick(event)">
-          Authorize
-        </button>
-      </div>
-        <article id="output"></article>
-    </div>
-
     <div class='grid-item--width-3'>
         <h2>Get Your Shit Together</h2>
         <hr><br>
@@ -77,11 +41,11 @@
     <script src="https://apis.google.com/js/client.js?onload=checkAuth" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4VfH8HaR0oIwXR81awWPGxwUej85hZA&signed_in=true&callback=initMap"
         async defer></script>
-    <script type='text/javascript' src='js/main.js'></script>
     <script type='text/javascript' src='js/cal.js'></script>
     <script type='text/javascript' src='js/map.js'></script>
     <script type='text/javascript' src='js/weather.js'></script>
     <script type='text/javascript' src='js/todo.js'></script>
+    <script type='text/javascript' src='js/main.js'></script>
 
   </body>
 </html>
