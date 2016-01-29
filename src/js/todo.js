@@ -1,10 +1,5 @@
 // ** globals ** //
-var seed = [
-  'Say happy birthday',
-  'Wash the car',
-  'Watch the Bronocos win',
-  'Look at Wes'
-];
+var seed = ['<div class="row"><div class="col-md-1"></div><div class="col-md-10"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;You have no todos!</article></div><div class="col-md-1"></div></div>'];
 
 
 // ** dom manipulation ** //
@@ -23,18 +18,30 @@ $(document).on('ready', function() {
   $('form').on('submit', function(event) {
     event.preventDefault();
     var todo = $('input').val();
-    // add new todo to the dom
-    $('#all-todos').append(
-      '<li><button class="btn btn-danger btn-sm">X</button>&nbsp;'+todo+'</li>'
-    );
-    // update localstorage
-    seedDataToLocalStorage(todo);
+
+    bigTodo = '<div class="row"><div class="col-md-1"></div><div class="col-md-10"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</article></div><div class="col-md-1"></div></div>';
+
+    medTodo = '<div class="row"><div class="col-md-2"></div><div class="col-md-8"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</article></div><div class="col-md-2"></div></div>';
+
+    smallTodo = '<div class="row"><div class="col-md-3"></div><div class="col-md-6"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</article></div><div class="col-md-3"></div></div>';
+
+    // add new todo to the dom and seed to local storage
+    if ($("#big-task").is(":checked")) {
+      $('#beforeTodos').after(bigTodo);
+      seedDataToLocalStorage(bigTodo);
+    } else if ($("#med-task").is(":checked")) {
+      $('#beforeTodos').after(medTodo);
+      seedDataToLocalStorage(medTodo);
+    } else if ($("#small-task").is(":checked")) {
+      $('#beforeTodos').after(smallTodo);
+      seedDataToLocalStorage(smallTodo);
+    }
     // clear input
     $('input').val('');
   });
 
   // remove a todo
-  $(document).on('click', 'li', function(){
+  $(document).on('click', 'article', function(){
     $(this).remove();
     var strTodo = ($(this).text()).replace(/X/g, '').trim();
     // remove todo from localstorage
@@ -63,9 +70,7 @@ function getDataFromLocalStorage() {
 
 function appendToDom(arr) {
   arr.forEach(function(todo){
-    $('#all-todos').append(
-      '<li><button class="btn btn-danger btn-sm">X</button>&nbsp;'+todo+'</li>'
-    );
+    $('#beforeTodos').after(todo);
   });
 }
 
@@ -82,4 +87,4 @@ function removeTodoFromLocalStorage(todo) {
   current.splice(startIndex, 1);
   localStorage.setItem('todos', JSON.stringify(current));
 }
-// ** End Todo List ** //
+

@@ -46,12 +46,12 @@ jQuery(document).ready(function () {
 
 // ** Begin Open Weather ** //
 // Establish variables to retrieve from AJAX call
-// var currentTemp = [];
-// var currentHumid = [];
-// var todayLow = [];
-// var todayHigh = [];
-// var todayCondition = [];
-// var todayIcon = [];
+var currentTemp = [];
+var currentHumid = [];
+var todayLow = [];
+var todayHigh = [];
+var todayCondition = [];
+var todayIcon = [];
 
 //Put variable values into DOM
 // jQuery(document).ready(function () {
