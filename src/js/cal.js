@@ -23,7 +23,7 @@ function handleAuthResult(authResult) {
   var authorizeDiv = document.getElementById('authorize-div');
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
-    // authorizeDiv.style.display = 'none';
+    authorizeDiv.style.display = 'none';
     loadCalendarApi();
   } else {
     // Show auth UI, allowing the user to initiate authorization by
@@ -69,7 +69,7 @@ function listUpcomingEvents() {
 
   request.execute(function(resp) {
     var events = resp.items;
-    appendPre('Upcoming events:');
+    appendCalList('Your upcoming events:');
     function convertDate(date) {
       var dateStr = date.toString();
       var formattedDate = new Date(dateStr);
@@ -85,10 +85,10 @@ function listUpcomingEvents() {
           when = event.start.dateTime;
           var eventDate = convertDate(when);
         }
-        appendPre(event.summary + ' (' + eventDate + ')');
+        appendCalList(event.summary + ' (' + eventDate + ')');
       }
     } else {
-      appendPre('No upcoming events found.');
+      appendCalList('No upcoming events found.');
     }
 
   });
@@ -103,8 +103,9 @@ function listUpcomingEvents() {
 
 
 
-function appendPre(message) {
-  var pre = document.getElementById('output');
-  var textContent = document.createTextNode(message + '\n');
-  pre.appendChild(textContent);
+function appendCalList(message) {
+  var art = document.getElementById('output');
+  var newListItem = document.createElement('p');
+  newListItem.innerHTML = message;
+  art.appendChild(newListItem);
 }

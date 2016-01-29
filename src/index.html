@@ -24,7 +24,8 @@
       <div class='row top-margin'>
         <div class='col-md-1'>
         </div>
-        <div class='col-md-4 box-shadow' id='weather'>
+        <div class='col-md-4 box-shadow widgetBox' id='weather'>
+        <h2>Weather</h2>
           <p id='temp'>Temp</p>
           <p id='low'>Low</p>
           <p id='high'>High</p>
@@ -34,7 +35,10 @@
         </div>
         <div class='col-md-2'>
         </div>
-        <div id='map' class='col-md-4 box-shadow'>
+        <div class='col-md-4 box-shadow widgetBox'>
+          <h2>Traffic</h2>
+          <div id='map'>
+          </div>
         </div>
         <div class='col-md-1'>
         </div>
@@ -45,7 +49,7 @@
       <div class='row top-margin'>
         <div class='col-md-1'>
         </div>
-        <div class='col-md-10 box-shadow'>
+        <div class='col-md-4 box-shadow widgetBox'>
           <div id="authorize-div">
             <span>Authorize access to Google Calendar API</span>
             <!--Button for the user to click to initiate auth sequence -->
@@ -53,8 +57,8 @@
               Authorize
             </button>
           </div>
-          <pre id="output"></pre>
-        </div>
+            <article id="output"></article>
+          </div>
         <div class='col-md-1'>
         </div>
       </div>
