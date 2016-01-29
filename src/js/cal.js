@@ -69,20 +69,23 @@ function listUpcomingEvents() {
 
   request.execute(function(resp) {
     var events = resp.items;
-    var newDate = ''
     appendPre('Upcoming events:');
     function convertDate(date) {
-      newDate = date.slice(5, 8) + date.slice(8, 10) + '-' + date.slice(0, 4) + ' ' + date.slice(11, 16);
+      var dateStr = date.toString();
+      var formattedDate = new Date(dateStr);
+      var forDateStr = formattedDate.toString();
+      var dateTime = forDateStr.slice(0, 21);
+      return dateTime;
     }
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
-        var when = event.start.dateTime;
-        when = convertDate(when);
+        var when = event.start.date;
         if (!when) {
-          when = event.start.date;
+          when = event.start.dateTime;
+          var eventDate = convertDate(when);
         }
-        appendPre(event.summary + ' (' + when + ')');
+        appendPre(event.summary + ' (' + eventDate + ')');
       }
     } else {
       appendPre('No upcoming events found.');
