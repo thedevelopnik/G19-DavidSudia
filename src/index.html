@@ -14,17 +14,17 @@
   <body>
     <div class='container-fluid'>
       <div class='row'>
-        <div class='col-md-12'>
+        <header class='col-md-12 box-shadow'>
           <h1 class='text-center'>Welcome to HQ</h1>
-        </div>
+        </header>
       </div>
     </div>
 
     <div class='container-fluid'>
-      <div class='row'>
+      <div class='row top-margin'>
         <div class='col-md-1'>
         </div>
-        <div class='col-md-5 box-shadow' id='weather'>
+        <div class='col-md-4 box-shadow' id='weather'>
           <p id='temp'>Temp</p>
           <p id='low'>Low</p>
           <p id='high'>High</p>
@@ -32,7 +32,9 @@
           <p id='condition'>Condition</p>
           <div id='weather-icon'></div>
         </div>
-        <div id='map' class='col-md-5 box-shadow'>
+        <div class='col-md-2'>
+        </div>
+        <div id='map' class='col-md-4 box-shadow'>
         </div>
         <div class='col-md-1'>
         </div>
@@ -40,10 +42,10 @@
     </div>
 
     <div class='container-fluid'>
-      <div class='row'>
+      <div class='row top-margin'>
         <div class='col-md-1'>
         </div>
-        <div class='col-md-10'>
+        <div class='col-md-10 box-shadow'>
           <div id="authorize-div">
             <span>Authorize access to Google Calendar API</span>
             <!--Button for the user to click to initiate auth sequence -->
@@ -52,7 +54,6 @@
             </button>
           </div>
           <pre id="output"></pre>
-          <a href='#' onclick='signOut();'>Sign out</a>
         </div>
         <div class='col-md-1'>
         </div>
@@ -60,22 +61,35 @@
     </div>
 
     <div class='row'>
-      <div class='col-md-2'>
+      <div class='col-md-1'>
       </div>
-      <div class='col-md-8'>
-       <!-- Todos go here -->
+      <div class='col-md-10'>
+        <h2>Get Your Shit Together</h2>
+        <hr><br>
+
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="todoInput" placeholder="Enter your task...">
+            <label><input id='big-task' type="radio" name="task-size" value="">Big Task</label>
+            <label><input id='med-task' type="radio" name="task-size" value="">Medium Task</label>
+            <label><input id='small-task' type="radio" name="task-size" value="">Small Task</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
       </div>
-      <div class='col-md-2'>
+      <div class='col-md-1'>
       </div>
     </div>
 
-    <div class='row'>
-      <div class='col-md-3'>
+    <div id='beforeTodos' class='row'>
+      <div class='col-md-1'>
       </div>
-      <div class='col-md-9'>
-      <!-- todos go here -->
+      <div class='col-md-10'>
+        <h3>Your todos</h3>
+        <hr>
       </div>
-      <div class='col-md-3'>
+      <div class='col-md-1'>
       </div>
     </div>
 
@@ -85,6 +99,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4VfH8HaR0oIwXR81awWPGxwUej85hZA&signed_in=true&callback=initMap"
         async defer></script>
     <script type='text/javascript' src='js/main.js'></script>
+    <script type='text/javascript' src='js/cal.js'></script>
+    <script type='text/javascript' src='js/map.js'></script>
+    <script type='text/javascript' src='js/weather.js'></script>
+    <script type='text/javascript' src='js/todo.js'></script>
 
   </body>
 </html>
