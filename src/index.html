@@ -10,39 +10,40 @@
 
   <body>
     <header class='container'>
-      <img id='btn-map' class='icon flex-grow' src='./img/maps-icon.png'>
-      <img id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'>
+      <img alt='map widget button' id='btn-map' class='icon flex-grow' src='./img/maps-icon.png'>
+      <img alt='weather widget button' id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'>
       <h1 class='flex-grow'>Welcome to HQ</h1>
-      <img id='btn-cal' class='icon flex-grow' src='./img/calendar-icon.png'>
-      <img id='btn-todo' class='icon flex-grow' src='./img/todo-icon.png'>
+      <img alt='calendar widget button' id='btn-cal' class='icon flex-grow' src='./img/calendar-icon.png'>
+      <img alt='todo widget button' id='btn-todo' class='icon flex-grow' src='./img/todo-icon.png'>
     </header>
 
     <div id='main-grid' class='grid'>
-    </div>
+      <div class='grid-sizer'></div>
+      <div class='grid-item--width-3'>
+          <h2>Get Your Shit Together</h2>
+          <hr><br>
 
-    <div class='grid-item--width-3'>
-        <h2>Get Your Shit Together</h2>
-        <hr><br>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="todoInput" placeholder="Enter your task...">
+              <label><input id='big-task' type="radio" name="task-size" value="">Big Task</label>
+              <label><input id='med-task' type="radio" name="task-size" value="">Medium Task</label>
+              <label><input id='small-task' type="radio" name="task-size" value="">Small Task</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
 
-        <form>
-          <div class="form-group">
-            <input type="text" class="form-control" id="todoInput" placeholder="Enter your task...">
-            <label><input id='big-task' type="radio" name="task-size" value="">Big Task</label>
-            <label><input id='med-task' type="radio" name="task-size" value="">Medium Task</label>
-            <label><input id='small-task' type="radio" name="task-size" value="">Small Task</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-      <div id='beforeTodos'>
-        <h3>Your todos</h3>
-        <hr>
+        <div id='beforeTodos'>
+          <h3>Your todos</h3>
+          <hr>
+        </div>
       </div>
     </div>
 
 
-    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4VfH8HaR0oIwXR81awWPGxwUej85hZA&signed_in=true&callback=initMap"
         async defer></script>
