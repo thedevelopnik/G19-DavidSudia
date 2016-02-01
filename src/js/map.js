@@ -1,5 +1,6 @@
 function createMap(callback) {
   callback();
+  msnry.layout();
 }
 
 function initMap() {

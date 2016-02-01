@@ -2,7 +2,7 @@
 var body = document.getElementsByTagName('body')[0];
 var header = document.getElementsByTagName('header')[0];
 var grid = document.getElementById('main-grid');
-var newDiv = document.createElement('div');
+var newDiv = document.createElement('div')
 
 
 //Initialize Masonry
@@ -15,27 +15,29 @@ var msnry = new Masonry( elem, {
 
 
 // Functions for creating each widget
-function createMapWidget(newGridItem) {
-  newGridItem.id = 'map';
-  newGridItem.className = 'grid-item--width-2 widgetBox';
-  newGridItem.innerHTML = '<h2>Traffic</h2>';
-  grid.appendChild(newGridItem);
+function createMapWidget() {
+  var newDiv = document.createElement('div')
+  newDiv.className = 'grid-item width-2 widgetBox';
+  newDiv.innerHTML = '<h2>Traffic</h2><div id="map"></div>';
+  grid.appendChild(newDiv);
   createMap(initMap);
   msnry.layout();
 }
 
-function createCalendarWidget(newGridItem) {
-  newGridItem.className = 'grid-item--width-2 widgetBox';
-  newGridItem.innerHTML = calHTML;
-  grid.appendChild(newGridItem);
+function createCalendarWidget() {
+  var newDiv = document.createElement('div')
+  newDiv.className = 'grid-item width-2 widgetBox';
+  newDiv.innerHTML = calHTML;
+  grid.appendChild(newDiv);
   msnry.layout();
 }
 
-function createWeatherWidget(newGridItem) {
-  newGridItem.className = 'grid-item widgetBox';
-  newGridItem.id = 'weather';
-  newGridItem.innerHTML = weatherHTML;
-  grid.appendChild(newGridItem);
+function createWeatherWidget() {
+  var newDiv = document.createElement('div')
+  newDiv.className = 'grid-item widgetBox';
+  newDiv.id = 'weather';
+  newDiv.innerHTML = weatherHTML;
+  grid.appendChild(newDiv);
   msnry.layout();
 }
 
@@ -47,17 +49,32 @@ function createTodoWidget(newGridItem) {
 $(document).ready(function () {
   $('#btn-map').on('click', function() {
     console.log('you clicked the map button!');
-    createMapWidget(newDiv);
+    createMapWidget();
+    removeWidget();
   });
-  $('#btn-weather').on('click', createWeatherWidget(newDiv));
-  $('#btn-cal').on('click', createCalendarWidget(newDiv));
+  $('#btn-weather').on('click', function() {
+    console.log('you clicked the weather button!');
+    createWeatherWidget();
+    getWeather();
+    removeWidget();
+  });
+  $('#btn-cal').on('click', function() {
+    console.log('you clicked the cal button!');
+    createCalendarWidget();
+    removeWidget();
+  });
 });
 
 
 // Enable widget removal
-$(document).ready(function () {
+function removeWidget () {
   $('.widgetBox').on('click', function() {
     this.remove();
     msnry.layout();
   });
+}
+
+$(document).ready(function () {
+  removeWidget();
 });
+
