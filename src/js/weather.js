@@ -1,4 +1,4 @@
-var weatherHTML = "<h2>Weather</h2><p id='temp'>Temp</p><p id='low'>Low</p><p id='high'>High</p><p id='humid'>Humidity</p><p id='condition'>Condition</p><div id='weather-icon'></div>";
+var weatherHTML = "<h2 class='removeWidget'>Weather</h2><p id='temp'>Temp</p><p id='low'>Low</p><p id='high'>High</p><p id='humid'>Humidity</p><p id='condition'>Condition</p><div id='weather-icon'></div>";
 
 // ** Begin Location by IP ** //
 // Establish variable to hold latitude and longitude for use in Open Weather

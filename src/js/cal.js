@@ -1,4 +1,4 @@
-var calHTML = '<div id="authorize-div"><span>Authorize access to Google Calendar API</span><!--Button for the user to click to initiate auth sequence --><button id="authorize-button" onclick="handleAuthClick(event)">Authorize</button></div><article id="output"></article>';
+var calHTML = '<h2 class="removeWidget">Upcoming Events</h2><div id="authorize-div"><span>Authorize access to Google Calendar API</span><!--Button for the user to click to initiate auth sequence --><button id="authorize-button" onclick="handleAuthClick(event)">Authorize</button></div><article id="output"></article>';
 
 
 var CLIENT_ID = '723061971439-dv1pbtq741e2dk5n05psbrnufa99p4cj';
@@ -26,7 +26,7 @@ function handleAuthResult(authResult) {
   var authorizeDiv = document.getElementById('authorize-div');
   if (authResult && !authResult.error) {
     // Hide auth UI, then load client library.
-    // authorizeDiv.style.display = 'none';
+    authorizeDiv.style.display = 'none';
     loadCalendarApi();
   } else {
     // Show auth UI, allowing the user to initiate authorization by
