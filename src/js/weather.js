@@ -30,12 +30,12 @@ function getWeather () {
             var weatherP4 = $('#humid');
             var weatherP5 = $('#condition');
             var weatherIcon = $('#weather-icon');
-            $(weatherP1).html('<p class="lead">The current temperature is ' + currentTemp[0] + ' degrees Fahrenheit</p>');
-            $(weatherP2).html('<p class="lead">Today\'s low temperature is ' + todayLow[0] + ' degrees Fahrenheit</p>');
-            $(weatherP3).html('<p class="lead">Today\'s high temperature is ' + todayHigh[0] + ' degrees Fahrenheit</p>');
-            $(weatherP4).html('<p class="lead">The current humidity level is ' + todayHigh[0] + '%</p>');
-            $(weatherP5).html('<p class="lead">The current weather condition is ' + todayCondition[0] + '</p>');
-            $(weatherIcon).html('<img alt = ' + todayCondition[0] + 'src="http://openweathermap.org/img/w/"' + todayIcon[0]);
+            $(weatherP1).html('The current temperature is ' + currentTemp[0] + ' degrees Fahrenheit');
+            $(weatherP2).html('Today\'s low temperature is ' + todayLow[0] + ' degrees Fahrenheit');
+            $(weatherP3).html('Today\'s high temperature is ' + todayHigh[0] + ' degrees Fahrenheit');
+            $(weatherP4).html('The current humidity level is ' + todayHigh[0] + '%');
+            $(weatherP5).html('The current weather condition is ' + todayCondition[0]);
+            $(weatherIcon).html("<img src='http://openweathermap.org/img/w/" + todayIcon[0] + ".png'>");
             msnry.layout();
           }
         });

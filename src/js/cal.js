@@ -88,7 +88,7 @@ function listUpcomingEvents() {
           when = event.start.dateTime;
           var eventDate = convertDate(when);
         }
-        appendCalList('<p class="lead">' + event.summary + ' (' + eventDate + ')</p>');
+        appendCalList('<p>' + event.summary + ' (' + eventDate + ')</p>');
       }
     } else {
       appendCalList('No upcoming events found.');
