@@ -1,76 +1,94 @@
 header {
   text-align: center;
-}
+  background-color: #3498db;
+  color: #2c3e50; }
+
+#welcome {
+  background-color: #2c3e50;
+  color: white; }
+
+.mapBox {
+  background-color: #f39c12;
+  color: #2c3e50;
+  border-radius: 25px;
+  margin: 10px; }
+
+.weatherBox {
+  background-color: #18bc9c;
+  border-radius: 25px;
+  margin: 10px; }
+  .weatherBox h2 {
+    color: #2c3e50; }
+  .weatherBox p {
+    color: white; }
+
+.calBox {
+  background-color: #e74c3c;
+  border-radius: 25px;
+  margin: 10px; }
+  .calBox h2 {
+    color: #2c3e50; }
+  .calBox p {
+    color: white; }
+
+.todoBox {
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 25px;
+  margin: 10px; }
 
 .headContainer {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-}
+  align-items: center; }
 
 .flexGrow {
-  flex-grow: 1;
-}
+  flex-grow: 1; }
 
 .icon {
   height: 96px;
-  width: 96px;
-}
+  width: 96px; }
 
+.grid-sizer,
 .grid-item {
   width: 25%;
-  float: left;
-}
+  padding: 10px;
+  float: left; }
 
 .width-2 {
-  width: 50%;
-}
+  width: 45%; }
 
 .width-3 {
-  width: 75%;
-}
+  width: 70%; }
 
 #map {
-  height: 300px;
-  width: 500px;
-}
+  height: 300px; }
 
 .box-shadow {
-  box-shadow: 1px 2px 4px rgba(0,0,0,0.25);
-}
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25); }
 
 .todos {
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 .todoContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
+  justify-content: space-around; }
 
 .sTodo {
   width: 25%;
   order: 3;
-  flex-basis: 25%;
-}
+  flex-basis: 25%; }
 
 .bTodo {
   width: 75%;
   order: 1;
-  flex-basis: 75%;
-}
+  flex-basis: 75%; }
 
 .mTodo {
   width: 40%;
   order: 2;
-  flex-basis: 40%;
-}
-
-.top-margin {
-  margin-top: 20px;
-}
+  flex-basis: 40%; }
 
 .bottom-margin {
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
