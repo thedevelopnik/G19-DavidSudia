@@ -1,0 +1,76 @@
+header {
+  text-align: center;
+}
+
+.headContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexGrow {
+  flex-grow: 1;
+}
+
+.icon {
+  height: 96px;
+  width: 96px;
+}
+
+.grid-item {
+  width: 25%;
+  float: left;
+}
+
+.width-2 {
+  width: 50%;
+}
+
+.width-3 {
+  width: 75%;
+}
+
+#map {
+  height: 300px;
+  width: 500px;
+}
+
+.box-shadow {
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.25);
+}
+
+.todos {
+  list-style-type: none;
+}
+
+.todoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.sTodo {
+  width: 25%;
+  order: 3;
+  flex-basis: 25%;
+}
+
+.bTodo {
+  width: 75%;
+  order: 1;
+  flex-basis: 75%;
+}
+
+.mTodo {
+  width: 40%;
+  order: 2;
+  flex-basis: 40%;
+}
+
+.top-margin {
+  margin-top: 20px;
+}
+
+.bottom-margin {
+  margin-bottom: 20px;
+}
