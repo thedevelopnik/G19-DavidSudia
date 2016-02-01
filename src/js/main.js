@@ -45,8 +45,8 @@ function createTodoWidget() {
   var newDiv = document.createElement('div');
   newDiv.className = 'grid-item width-3';
   newDiv.innerHTML = todoHTML;
-  todoListCreation();
   grid.appendChild(newDiv);
+  todoListCreation();
   msnry.layout();
 }
 
