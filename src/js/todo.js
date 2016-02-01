@@ -1,11 +1,11 @@
 // ** globals ** //
+var todoHTML = '<div class="grid-item width-3"><h2 class="removeWidget">Get Your Shit Together</h2><hr><br><form><div class="form-group"><input type="text" class="form-control" id="todoInput" placeholder="Enter your task..."><label><input id="big-task" type="radio" name="task-size" value="">Big Task</label><label><input id="med-task" type="radio" name="task-size" value="">Medium Task</label><label><input id="small-task" type="radio" name="task-size" value="">Small Task</label></div><button type="submit" class="btn btn-primary">Submit</button></form><div id="beforeTodos"><h3>Your todos</h3><hr></div>'
+
 var seed = ['<div class="row"><div class="col-md-1"></div><div class="col-md-10"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;You have no todos!</article></div><div class="col-md-1"></div></div>'];
 
 
 // ** dom manipulation ** //
-
-$(document).on('ready', function() {
-
+function todoListCreation () {
   // seed data to local storage
   seedDataToLocalStorage();
 
@@ -29,12 +29,15 @@ $(document).on('ready', function() {
     if ($("#big-task").is(":checked")) {
       $('#beforeTodos').after(bigTodo);
       seedDataToLocalStorage(bigTodo);
+      msnry.layout();
     } else if ($("#med-task").is(":checked")) {
       $('#beforeTodos').after(medTodo);
       seedDataToLocalStorage(medTodo);
+      msnry.layout();
     } else if ($("#small-task").is(":checked")) {
       $('#beforeTodos').after(smallTodo);
       seedDataToLocalStorage(smallTodo);
+      msnry.layout();
     }
     // clear input
     $('input').val('');
@@ -46,9 +49,14 @@ $(document).on('ready', function() {
     var strTodo = ($(this).text()).replace(/X/g, '').trim();
     // remove todo from localstorage
     removeTodoFromLocalStorage(strTodo);
+    msnry.layout();
   });
+}
 
-});
+
+$(document).on('ready', function() {
+  todoListCreation();
+  });
 
 
 // ** helper functions ** //
