@@ -1,7 +1,7 @@
 // ** globals ** //
-var todoHTML = '<h2 class="removeWidget">Get Your Shit Together</h2><hr><br><form><div class="form-group"><input type="text" class="form-control" id="todoInput" placeholder="Enter your task..."><label><input id="big-task" type="radio" name="task-size" value="">Big Task</label><label><input id="med-task" type="radio" name="task-size" value="">Medium Task</label><label><input id="small-task" type="radio" name="task-size" value="">Small Task</label></div><button type="submit" class="btn btn-primary">Submit</button></form><div id="beforeTodos"><h3>Your todos</h3><hr>'
+var todoHTML = '<h2 class="removeWidget">Get Your Shit Together</h2><hr><br><form><div class="form-group"><input type="text" class="form-control" id="todoInput" placeholder="Enter your task..."><label><input id="big-task" type="radio" name="task-size" value="">Big Task</label><label><input id="med-task" type="radio" name="task-size" value="">Medium Task</label><label><input id="small-task" type="radio" name="task-size" value="">Small Task</label></div><button type="submit" class="btn btn-info">Submit</button></form><div id="beforeTodos"><h3>Your todos</h3><hr></div><div id="todoSection" class="todoContainer"></div>'
 
-var seed = ['<div class="row"><div class="col-md-1"></div><div class="col-md-10"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;You have no todos!</article></div><div class="col-md-1"></div></div>'];
+var seed = ['<div class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;You have no todos!</div>'];
 
 
 // ** dom manipulation ** //
@@ -19,23 +19,23 @@ function todoListCreation () {
     event.preventDefault();
     var todo = $('input').val();
 
-    bigTodo = '<div class="row"><div class="col-md-1"></div><div class="col-md-10"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</article></div><div class="col-md-1"></div></div>';
+    bigTodo = '<div class="todos bTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
 
-    medTodo = '<div class="row"><div class="col-md-2"></div><div class="col-md-8"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</article></div><div class="col-md-2"></div></div>';
+    medTodo = '<div class="todos mTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
 
-    smallTodo = '<div class="row"><div class="col-md-3"></div><div class="col-md-6"><article class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</article></div><div class="col-md-3"></div></div>';
+    smallTodo = '<div class="todos sTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
 
-    // add new todo to the dom and seed to local storage
+    // add new todo to the dom, seed to local storage, and adjust layout
     if ($("#big-task").is(":checked")) {
-      $('#beforeTodos').after(bigTodo);
+      $('#todoSection').append(bigTodo);
       seedDataToLocalStorage(bigTodo);
       msnry.layout();
     } else if ($("#med-task").is(":checked")) {
-      $('#beforeTodos').after(medTodo);
+      $('#todoSection').append(medTodo);
       seedDataToLocalStorage(medTodo);
       msnry.layout();
     } else if ($("#small-task").is(":checked")) {
-      $('#beforeTodos').after(smallTodo);
+      $('#todoSection').append(smallTodo);
       seedDataToLocalStorage(smallTodo);
       msnry.layout();
     }
@@ -44,7 +44,7 @@ function todoListCreation () {
   });
 
   // remove a todo
-  $(document).on('click', 'article', function(){
+  $(document).on('click', '.todos', function(){
     $(this).remove();
     var strTodo = ($(this).text()).replace(/X/g, '').trim();
     // remove todo from localstorage
@@ -78,7 +78,7 @@ function getDataFromLocalStorage() {
 
 function appendToDom(arr) {
   arr.forEach(function(todo){
-    $('#beforeTodos').after(todo);
+    $('#todoSection').append(todo);
   });
 }
 

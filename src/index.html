@@ -6,10 +6,12 @@
     <title>Welcome to HQ</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha256-Av2lUNJFz7FqxLquvIFyxyCQA/VHUFna3onVy+5jUBM= sha512-zyqATyziDoUzMiMR8EAD3c5Ye55I2V3K7GcmJDHbL49cXzFQCEA6flSKqxEzwxXqq73/M4A0jKFFJ/ysEhbExQ==" crossorigin="anonymous">
   </head>
 
   <body>
-    <header class='container'>
+    <header class='headContainer info'>
       <img alt='map widget button' id='btn-map' class='icon flex-grow' src='./img/maps-icon.png'>
       <img alt='weather widget button' id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'>
       <h1 class='flex-grow'>Welcome to HQ</h1>
@@ -18,12 +20,16 @@
     </header>
 
     <div id='main-grid' class='grid'>
-
+      <div class='grid-item width-2' id='welcome'>
+        <h2 class='removeWidget'>Getting Started</h2>
+        <p>Welcome to your daily dashboard. This dashboard allows you to add several different widgets to the page. To add a widget, click on one of the buttons above. To remove a widget, click on its title. You can try that by clicking on "Getting Started" above to remove this text.</p>
+      </div>
     </div>
 
 
 
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
     <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4VfH8HaR0oIwXR81awWPGxwUej85hZA&signed_in=true&callback=initMap"

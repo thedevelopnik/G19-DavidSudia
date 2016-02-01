@@ -66,7 +66,7 @@ function listUpcomingEvents() {
     'timeMin': (new Date()).toISOString(),
     'showDeleted': false,
     'singleEvents': true,
-    'maxResults': 10,
+    'maxResults': 7,
     'orderBy': 'startTime'
   });
 
@@ -88,7 +88,7 @@ function listUpcomingEvents() {
           when = event.start.dateTime;
           var eventDate = convertDate(when);
         }
-        appendCalList(event.summary + ' (' + eventDate + ')');
+        appendCalList('<p class="lead">' + event.summary + ' (' + eventDate + ')</p>');
       }
     } else {
       appendCalList('No upcoming events found.');

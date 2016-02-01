@@ -9,15 +9,16 @@ var newDiv = document.createElement('div')
 var elem = document.querySelector('.grid');
 var msnry = new Masonry( elem, {
   // options
+  percentPosition: true,
+  columnWidth: '.grid-sizer',
   itemSelector: '.grid-item',
-  columnWidth: 250
 });
 
 
 // Functions for creating each widget
 function createMapWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item width-2 widgetBox';
+  newDiv.className = 'grid-item width-2 mapBox';
   newDiv.innerHTML = '<h2 class="removeWidget">Traffic</h2><div id="map"></div>';
   grid.appendChild(newDiv);
   createMap(initMap);
@@ -26,7 +27,7 @@ function createMapWidget() {
 
 function createCalendarWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item width-2 widgetBox';
+  newDiv.className = 'grid-item width-2 calBox';
   newDiv.innerHTML = calHTML;
   grid.appendChild(newDiv);
   msnry.layout();
@@ -34,7 +35,7 @@ function createCalendarWidget() {
 
 function createWeatherWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item';
+  newDiv.className = 'grid-item weatherBox';
   newDiv.id = 'weather';
   newDiv.innerHTML = weatherHTML;
   grid.appendChild(newDiv);
@@ -43,7 +44,7 @@ function createWeatherWidget() {
 
 function createTodoWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item width-3';
+  newDiv.className = 'grid-item width-3 todoBox';
   newDiv.innerHTML = todoHTML;
   grid.appendChild(newDiv);
   todoListCreation();
