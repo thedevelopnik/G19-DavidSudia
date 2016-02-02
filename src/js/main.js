@@ -18,7 +18,7 @@ var msnry = new Masonry( elem, {
 // Functions for creating each widget
 function createMapWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item width-2 mapBox';
+  newDiv.className = 'grid-item width-2 mapBox animated zoomIn';
   newDiv.innerHTML = '<h2 class="removeWidget">Traffic</h2><div id="map"></div>';
   grid.appendChild(newDiv);
   createMap(initMap);
@@ -27,7 +27,7 @@ function createMapWidget() {
 
 function createCalendarWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item width-2 calBox';
+  newDiv.className = 'grid-item width-2 calBox animated zoomIn';
   newDiv.innerHTML = calHTML;
   grid.appendChild(newDiv);
   msnry.layout();
@@ -35,7 +35,7 @@ function createCalendarWidget() {
 
 function createWeatherWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item weatherBox';
+  newDiv.className = 'grid-item weatherBox animated zoomIn';
   newDiv.id = 'weather';
   newDiv.innerHTML = weatherHTML;
   grid.appendChild(newDiv);
@@ -44,7 +44,7 @@ function createWeatherWidget() {
 
 function createTodoWidget() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item width-3 todoBox';
+  newDiv.className = 'grid-item width-3 todoBox animated zoomIn';
   newDiv.innerHTML = todoHTML;
   grid.appendChild(newDiv);
   todoListCreation();
@@ -83,7 +83,7 @@ function removeWidget () {
   $('.removeWidget').on('click', function() {
     var parent = $(this).parent();
     console.log('you clicked the heading!')
-    parent.remove();
+    parent.remove()
     msnry.layout();
   });
 }
