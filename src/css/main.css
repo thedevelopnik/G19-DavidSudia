@@ -5,7 +5,10 @@ header {
 
 #welcome {
   background-color: #2c3e50;
-  color: white; }
+  color: white;
+  border-radius: 25px;
+  margin: 10px;
+}
 
 .mapBox {
   background-color: #f39c12;
