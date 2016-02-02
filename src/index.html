@@ -13,9 +13,41 @@
   <body>
     <header class='headContainer info'>
       <img alt='map widget button' id='btn-map' class='icon flex-grow' src='./img/maps-icon.png'>
-      <img alt='weather widget button' id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'>
+
+      <div class='dropdown open'>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><img alt='weather widget button' id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'><span class="caret"></span></a>
+
+          <div class='form-group dropdown-menu' role='menu'>
+            <form>
+            <ul class='todos'>
+              <li><label>
+                <input type='checkbox' id='currTempCheck' name='currTempCheck' value=''> Current Temperature?
+              </label></li>
+              <li><label>
+                <input type='checkbox' id='todHighCheck' name='todHighCheck' value=''> Today's High?
+              </label></li>
+              <li><label>
+                <input type='checkbox' id='todLowCheck' name='todLowCheck' value=''> Today's Low?
+              </label></li>
+              <li><label>
+                <input type='checkbox' id='currHumCheck' name='currHumCheck' value=''> Current Humidity?
+              </label></li>
+              <li><label>
+                <input type='checkbox' id='currCondCheck' name='currCondCheck' value=''> Current Condition?
+              </label></li>
+              <li><label>
+                <input type='checkbox' id='iconCheck' name='iconCheck' value=''> Condition Icon?
+              </label></li>
+              <li><input type='submit' id='weatherSubmit' name='weatherSubmit' value='Make My Widget!'></li>
+            </ul>
+            </form>
+          </div>
+      </div>
+
       <h1 class='flex-grow'>Welcome to HQ</h1>
+
       <img alt='calendar widget button' id='btn-cal' class='icon flex-grow' src='./img/calendar-icon.png'>
+
       <img alt='todo widget button' id='btn-todo' class='icon flex-grow' src='./img/todo-icon.png'>
     </header>
 

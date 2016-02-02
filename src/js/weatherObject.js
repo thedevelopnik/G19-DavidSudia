@@ -1,3 +1,5 @@
+//call weatherWidget = new Weather and enter boolean values for each of the parameters according to what you want in your widget.
+
 var Weather = function (currTemp, currHum, todLow, todHigh, todCond, todIcon) {
   this.currentTemp = currTemp;
   this.currentHum = currHum;
@@ -80,6 +82,8 @@ var Weather = function (currTemp, currHum, todLow, todHigh, todCond, todIcon) {
     });
   }
 }
+
+
 
 // var weatherWidget = new Weather( ... )
 // weatherWidget.attachWidget('#weather');
