@@ -1,10 +1,10 @@
-//call weatherWidget = new Weather and enter boolean values for each of the parameters according to what you want in your widget.
+//weatherWidget = new Weather and enter boolean values for each of the parameters according to what you want in your widget.
 
-var Weather = function (currTemp, currHum, todLow, todHigh, todCond, todIcon) {
+var Weather = function (currTemp, todLow, todHigh, currHum, todCond, todIcon) {
   this.currentTemp = currTemp;
-  this.currentHum = currHum;
   this.todayLow = todLow;
   this.todayHigh = todHigh;
+  this.currentHum = currHum;
   this.todayCondition = todCond;
   this.todayIcon = todIcon;
 
@@ -83,9 +83,15 @@ var Weather = function (currTemp, currHum, todLow, todHigh, todCond, todIcon) {
   }
 }
 
+function makeWeatherWidget (elementId) {
+  var currTempVal = $('#currTempCheck').val();
+  var todHighVal = $('#currTempCheck').val();
+  var todLowVal = $('#todLowCheck').val();
+  var currHumVal = $('#currHumCheck').val();
+  var currCondVal = $('#currCondCheck').val();
+  var iconVal = $('#iconCheck').val();
 
+  var weatherWidget = new Weather(currTempVal, todHighVal, todLowVal, currHumVal, currCondVal, iconVal);
 
-// var weatherWidget = new Weather( ... )
-// weatherWidget.attachWidget('#weather');
-//
-//
+  $('"#'+ elementId + '"').html = weatherWidget.weatherHTML;
+}
