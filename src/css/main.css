@@ -92,3 +92,7 @@ header {
 
 .bottom-margin {
   margin-bottom: 20px; }
+
+form {
+  padding-left: 5px;
+}

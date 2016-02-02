@@ -30,6 +30,7 @@ function createCalendarWidget() {
   newDiv.className = 'grid-item width-2 calBox';
   newDiv.innerHTML = calHTML;
   grid.appendChild(newDiv);
+  makeCal();
   msnry.layout();
 }
 
@@ -37,8 +38,9 @@ function createWeatherWidget() {
   var newDiv = document.createElement('div');
   newDiv.className = 'grid-item weatherBox';
   newDiv.id = 'weather';
-  makeWeatherWidget(newDiv.id);
+  newDiv.innerHTML = weatherHTML;
   grid.appendChild(newDiv);
+  makeWeatherWidget();
   msnry.layout();
 }
 

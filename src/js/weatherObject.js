@@ -1,8 +1,9 @@
 //weatherWidget = new Weather and enter boolean values for each of the parameters according to what you want in your widget. Delete msnry.layout if you are not using Masonry
 
+var weatherHTML = "<h2 class='removeWidget'>Weather</h2><p id='temp'></p><p id='low'></p><p id='high'></p><p id='humid'></p><p id='condition'></p><div id='weather-icon'></div>";
 
 //make a div where you want your widget with an ID to pass into this function.
-function makeWeatherWidget (elementId) {
+function makeWeatherWidget () {
   var currTempVal = !!$('#currTempCheck').is(':checked');
   var todHighVal = !!$('#todHighCheck').is(':checked');
   var todLowVal = !!$('#todLowCheck').is(':checked');
@@ -13,8 +14,6 @@ function makeWeatherWidget (elementId) {
   var weatherWidget = new Weather(currTempVal, todHighVal, todLowVal, currHumVal, currCondVal, iconVal);
 
   weatherWidget.getWeather();
-
-  $(elementId).html = weatherWidget.weatherHTML;
 }
 
 var Weather = function (currTemp, todLow, todHigh, currHum, todCond, todIcon) {
@@ -32,7 +31,6 @@ var Weather = function (currTemp, todLow, todHigh, currHum, todCond, todIcon) {
   this.todayHighTemp = [];
   this.todayConditionText = [];
   this.todayCondIcon = [];
-  this.weatherHTML = '<h2>Weather</h2>'
   var self = this;
 
  this.getWeather = function() {
@@ -58,39 +56,33 @@ var Weather = function (currTemp, todLow, todHigh, currHum, todCond, todIcon) {
                // Move this back once I learn promises.
 
             if (self.currentTemp === true) {
-              self.weatherHTML += '<p id="temp">Temp</p>';
               var weatherP1 = $('#temp')
-              $(weatherP1).html('The current temperature is ' + self.currentTemp[0] + ' degrees Fahrenheit');
+              $(weatherP1).html('The current temperature is ' + self.currentTemperature[0] + ' degrees Fahrenheit');
             }
 
             if (self.todayLow === true) {
-              self.weatherHTML += '<p id="low">Low</p>';
               var weatherP2 = $('#low');
-              $(weatherP2).html('Today\'s low temperature is ' + self.todayLow[0] + ' degrees Fahrenheit');
+              $(weatherP2).html('Today\'s low temperature is ' + self.todayLowTemp[0] + ' degrees Fahrenheit');
             }
 
             if (self.todayHigh) {
-              self.weatherHTML += '<p id="high">High</p>';
               var weatherP3 = $('#high');
-              $(weatherP3).html('Today\'s high temperature is ' + self.todayHigh[0] + ' degrees Fahrenheit');
+              $(weatherP3).html('Today\'s high temperature is ' + self.todayHighTemp[0] + ' degrees Fahrenheit');
             }
 
             if (this.currentHum === true) {
-              self.weatherHTML += '<p id="humid">Humidity</p>';
               var weatherP4 = $('#humid');
-              $(weatherP4).html('The current humidity level is ' + self.todayHigh[0] + '%');
+              $(weatherP4).html('The current humidity level is ' + self.currentHumid[0] + '%');
             }
 
             if (self.todayCondition === true) {
-              self.weatherHTML += '<p id="condition">Condition</p>';
               var weatherP5 = $('#condition');
-              $(weatherP5).html('The current weather condition is ' + self.todayCondition[0]);
+              $(weatherP5).html('The current weather condition is ' + self.todayConditionText[0]);
             }
 
             if (self.todayIcon === true) {
-              self.weatherHTML += '<div id="weather-icon"></div>'
               var weatherIcon = $('#weather-icon');
-              $(weatherIcon).html("<img src='http://openweathermap.org/img/w/" + self.todayIcon[0] + ".png'>");
+              $(weatherIcon).html("<img src='http://openweathermap.org/img/w/" + self.todayCondIcon[0] + ".png'>");
             }
 
             msnry.layout();

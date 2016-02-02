@@ -14,13 +14,13 @@
     <header class='headContainer info'>
       <img alt='map widget button' id='btn-map' class='icon flex-grow' src='./img/maps-icon.png'>
 
-      <div class='dropdown open'>
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><img alt='weather widget button' id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'><span class="caret"></span></a>
+      <div class='dropdown closed'>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img alt='weather widget button' id='btn-weather' class='icon flex-grow' src='./img/weather-icon.png'><span class="caret"></span></a>
 
           <div class='form-group dropdown-menu' role='menu'>
             <form>
               <label>
-                <input type='checkbox' id='currTempCheck' name='currTempCheck' value=''> Current Temperature?
+                <input type='checkbox' id='currTempCheck' name='currTempCheck' value=''> Current Temp?
               </label>
               <label>
                 <input type='checkbox' id='todHighCheck' name='todHighCheck' value=''> Today's High?
@@ -37,7 +37,7 @@
               <label>
                 <input type='checkbox' id='iconCheck' name='iconCheck' value=''> Condition Icon?
               </label>
-              <input type='submit' id='weatherSubmit' name='weatherSubmit' value='Make My Widget!'>
+              <input type='submit' class='btn-info' id='weatherSubmit' name='weatherSubmit' value='Make My Widget!'>
             </form>
           </div>
       </div>
@@ -52,7 +52,7 @@
     <div id='main-grid' class='grid'>
       <div class='grid-item width-2' id='welcome'>
         <h2 class='removeWidget'>Getting Started</h2>
-        <p>Welcome to your daily dashboard. This dashboard allows you to add several different widgets to the page. To add a widget, click on one of the buttons above. To remove a widget, click on its title. You can try that by clicking on "Getting Started" above to remove this text.</p>
+        <p>Welcome to your daily dashboard. This dashboard allows you to add several different widgets to the page. To add a widget, click on one of the buttons above. If an icon has a "<span class="caret"></span>" next to it, you can select options for that widget. To remove a widget, click on its title. You can try that by clicking on "Getting Started" above to remove this text.</p>
       </div>
     </div>
 
@@ -61,10 +61,10 @@
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
     <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth" async defer></script>
+    <script src="https://apis.google.com/js/client.js?onload=makeCal" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL4VfH8HaR0oIwXR81awWPGxwUej85hZA&signed_in=true"
         async defer></script>
-    <script type='text/javascript' src='js/cal.js'></script>
+    <script type='text/javascript' src='js/calObject.js'></script>
     <script type='text/javascript' src='js/mapObject.js'></script>
     <script type='text/javascript' src='js/weatherObject.js'></script>
     <script type='text/javascript' src='js/todo.js'></script>
