@@ -6,12 +6,12 @@ var newDiv = document.createElement('div')
 
 
 //Initialize Masonry
-var elem = document.querySelector('.grid');
-var msnry = new Masonry( elem, {
+var msnry = new Masonry('.grid', {
   // options
   percentPosition: true,
   columnWidth: '.grid-sizer',
   itemSelector: '.grid-item',
+  transitionDuration: '0.4s'
 });
 
 
