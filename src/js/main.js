@@ -21,7 +21,7 @@ function createMapWidget() {
   newDiv.className = 'grid-item width-2 mapBox';
   newDiv.innerHTML = '<h2 class="removeWidget">Traffic</h2><div id="map"></div>';
   grid.appendChild(newDiv);
-  createMap(initMap);
+  createMap();
   msnry.layout();
 }
 
