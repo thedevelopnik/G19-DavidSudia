@@ -5,9 +5,9 @@ function createMap() {
 }
 
 var MapCreator = function(trafficVal) {
+  var self = this;
   this.traffic = trafficVal;
   this.initMap = function () {
-    var self = this;
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 39.739, lng: -104.990},
       zoom: 12
@@ -36,4 +36,5 @@ var MapCreator = function(trafficVal) {
       var trafficLayer = new google.maps.TrafficLayer();
       trafficLayer.setMap(map);
     }
+  }
 }
