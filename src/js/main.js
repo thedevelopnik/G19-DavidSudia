@@ -83,7 +83,11 @@ function removeWidget () {
   $('.removeWidget').on('click', function() {
     var parent = $(this).parent();
     console.log('you clicked the heading!')
-    parent.remove()
+    parent.removeClass('zoomIn');
+    parent.addClass('zoomOut');
+    setTimeout(function () {
+      parent.remove();
+    }, 400);
     msnry.layout();
   });
 }
