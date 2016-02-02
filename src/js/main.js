@@ -37,7 +37,7 @@ function createWeatherWidget() {
   var newDiv = document.createElement('div');
   newDiv.className = 'grid-item weatherBox';
   newDiv.id = 'weather';
-  newDiv.innerHTML = weatherHTML;
+  makeWeatherWidget(newDiv.id);
   grid.appendChild(newDiv);
   msnry.layout();
 }
@@ -59,10 +59,10 @@ $(document).ready(function () {
     createMapWidget();
     removeWidget();
   });
-  $('#btn-weather').on('click', function() {
+  $('#weatherSubmit').on('click', function(event) {
+    event.preventDefault();
     console.log('you clicked the weather button!');
     createWeatherWidget();
-    getWeather();
     removeWidget();
   });
   $('#btn-cal').on('click', function() {
