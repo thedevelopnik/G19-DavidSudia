@@ -1,6 +1,6 @@
-function createMap(callback) {
+function createMap() {
   var mapWidget = new MapCreator(true);
-  mapWidget.initMap;
+  mapWidget.initMap();
   msnry.layout();
 }
 
@@ -32,7 +32,6 @@ var MapCreator = function(trafficVal) {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
-
     if (self.traffic === true) {
       var trafficLayer = new google.maps.TrafficLayer();
       trafficLayer.setMap(map);
