@@ -3,11 +3,6 @@ var calHTML = '<h2 class="removeWidget">Upcoming Events</h2><div id="authorize-d
 function makeCal() {
   var cal = new Calendar('723061971439-dv1pbtq741e2dk5n05psbrnufa99p4cj', ["https://www.googleapis.com/auth/calendar.readonly"]);
   cal.checkAuth();
-  cal.handleAuthResult();
-  cal.handleAuthClick();
-  cal.loadCalendarApi();
-  cal.listUpcomingEvents();
-  cal.appendCalList();
 }
 
 var Calendar = function(apiKey, scope) {
