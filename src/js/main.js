@@ -17,6 +17,27 @@ var msnry = new Masonry('.grid', {
 $(document).ready(function () {
   console.log('sanity check');
   userPageCreation();
+  $('#btn-map').on('click', function() {
+    console.log('you clicked the map button!');
+    createMapWidget();
+    removeWidget();
+  });
+  $('#btn-weather').on('click', function() {
+    console.log('you clicked the weather button!');
+    createWeatherWidget();
+    getWeather();
+    removeWidget();
+  });
+  $('#btn-cal').on('click', function() {
+    console.log('you clicked the cal button!');
+    createCalendarWidget();
+    removeWidget();
+  });
+  $('#btn-todo').on('click', function() {
+    console.log('you clicked the todo button!');
+    createTodoWidget();
+    removeWidget();
+  });
 });
 
 // Functions for creating each widget
@@ -61,39 +82,12 @@ function createTodoWidget() {
 
 function createGettingStarted() {
   var newDiv = document.createElement('div');
-  newDiv.className = 'grid-item width-2 animated zoomIn';
+  newDiv.className = 'grid-item width-2 getStart animated zoomIn';
   newDiv.id = 'welcome';
   newDiv.innerHTML = getStartHTML;
   grid.appendChild(newDiv);
   msnry.layout();
 }
-
-
-// Icon clicks to create widgets
-$(document).ready(function () {
-  $('#btn-map').on('click', function() {
-    console.log('you clicked the map button!');
-    createMapWidget();
-    removeWidget();
-  });
-  $('#btn-weather').on('click', function() {
-    console.log('you clicked the weather button!');
-    createWeatherWidget();
-    getWeather();
-    removeWidget();
-  });
-  $('#btn-cal').on('click', function() {
-    console.log('you clicked the cal button!');
-    createCalendarWidget();
-    removeWidget();
-  });
-  $('#btn-todo').on('click', function() {
-    console.log('you clicked the todo button!');
-    createTodoWidget();
-    removeWidget();
-  });
-});
-
 
 // Enable widget removal
 function removeWidget () {
@@ -106,7 +100,9 @@ function removeWidget () {
     } else if ($(parent).hasClass('weatherBox')) {
       removeWidgetFromLocalStorage('weather');
     } else if ($(parent).hasClass('todoBox')) {
-      removeWidgetFromLocalStorage(todoList);
+      removeWidgetFromLocalStorage('todoList');
+    } else if ($(parent).hasClass('getStart')) {
+      removeWidgetFromLocalStorage('getStart');
     }
     parent.removeClass('zoomIn');
     parent.addClass('zoomOut');

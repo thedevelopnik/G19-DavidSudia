@@ -1,9 +1,11 @@
 var seed = ['getStart'];
 
 function userPageCreation() {
-// in localstorage there is a key 'widgets' with a value of an array
+  debugger;
   seedWidgetToLocalStorage();
+  debugger;
   var userWidgets = getWidgetsFromLocalStorage();
+  debugger;
   runWidgetFunctions(userWidgets);
 }
 
@@ -25,6 +27,7 @@ function seedWidgetToLocalStorage(widget) {
     localStorage.setItem('widgets', JSON.stringify(currentData));
   }
   if(!getWidgetsFromLocalStorage()) {
+    debugger;
     localStorage.setItem('widgets', JSON.stringify(seed));
   }
 }
@@ -34,6 +37,7 @@ function getWidgetsFromLocalStorage() {
 }
 
 function runWidgetFunctions(arr) {
+  console.log(arr);
   for (i = 0; i < arr.length; i++) {
     if (arr[i] === 'map') {
       createMapWidget();
@@ -43,7 +47,7 @@ function runWidgetFunctions(arr) {
       createWeatherWidget();
     } else if (arr[i] === 'todoList') {
       createTodoWidget();
-    } else {
+    } else if (arr[i] === 'getStart') {
       createGettingStarted();
     }
   }
