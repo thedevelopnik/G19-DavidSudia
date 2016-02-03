@@ -18,23 +18,19 @@ $(document).ready(function () {
   console.log('sanity check');
   userPageCreation();
   $('#btn-map').on('click', function() {
-    console.log('you clicked the map button!');
     createMapWidget();
     removeWidget();
   });
   $('#btn-weather').on('click', function() {
-    console.log('you clicked the weather button!');
     createWeatherWidget();
     getWeather();
     removeWidget();
   });
   $('#btn-cal').on('click', function() {
-    console.log('you clicked the cal button!');
     createCalendarWidget();
     removeWidget();
   });
   $('#btn-todo').on('click', function() {
-    console.log('you clicked the todo button!');
     createTodoWidget();
     removeWidget();
   });

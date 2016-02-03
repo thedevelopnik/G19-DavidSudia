@@ -40,8 +40,7 @@ function getWidgetsFromLocalStorage() {
 }
 
 function runWidgetFunctions(arr) {
-  console.log(arr);
-  for (i = 0; i < 2; i++) {
+  for (i = 0; i < arr.length; i++) {
     if (arr[i] === 'map') {
       createMapWidget();
     } else if (arr[i] === 'cal') {
