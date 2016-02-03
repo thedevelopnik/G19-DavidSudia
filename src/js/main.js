@@ -17,6 +17,7 @@ var msnry = new Masonry('.grid', {
 $(document).ready(function () {
   console.log('sanity check');
   userPageCreation();
+  removeWidget();
   $('#btn-map').on('click', function() {
     event.stopPropagation();
     createMapWidget();
@@ -113,7 +114,3 @@ function removeWidget () {
     msnry.layout();
   });
 }
-
-$(document).ready(function () {
-  removeWidget();
-});
