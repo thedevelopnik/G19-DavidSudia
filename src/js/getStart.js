@@ -1,0 +1,1 @@
+var getStartHTML = "<h2 class='removeWidget'>Getting Started</h2><p>Welcome to your daily dashboard. This dashboard allows you to add several different widgets to the page. To add a widget, click on one of the buttons above. To remove a widget, click on its title. You can try that by clicking on \"Getting Started\" above to remove this text.</p>";
