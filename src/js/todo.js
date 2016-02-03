@@ -7,10 +7,10 @@ var seed = ['<div class="todos box-shadow bottom-margin"><button class="btn btn-
 // ** dom manipulation ** //
 function todoListCreation () {
   // seed data to local storage
-  seedDataToLocalStorage();
+  seedTodosToLocalStorage();
 
   // grab data from local storage
-  var allYourTodos = getDataFromLocalStorage();
+  var allYourTodos = getTodosFromLocalStorage();
 
   // append data to the dom
   appendToDom(allYourTodos);
@@ -28,15 +28,15 @@ function todoListCreation () {
     // add new todo to the dom, seed to local storage, and adjust layout
     if ($("#big-task").is(":checked")) {
       $('#todoSection').append(bigTodo);
-      seedDataToLocalStorage(bigTodo);
+      seedTodosToLocalStorage(bigTodo);
       msnry.layout();
     } else if ($("#med-task").is(":checked")) {
       $('#todoSection').append(medTodo);
-      seedDataToLocalStorage(medTodo);
+      seedTodosToLocalStorage(medTodo);
       msnry.layout();
     } else if ($("#small-task").is(":checked")) {
       $('#todoSection').append(smallTodo);
-      seedDataToLocalStorage(smallTodo);
+      seedTodosToLocalStorage(smallTodo);
       msnry.layout();
     }
     // clear input
@@ -61,18 +61,18 @@ $(document).on('ready', function() {
 
 // ** helper functions ** //
 
-function seedDataToLocalStorage(todo) {
+function seedTodosToLocalStorage(todo) {
   if (todo) {
-    var currentData = getDataFromLocalStorage();
+    var currentData = getTodosFromLocalStorage();
     currentData.push(todo);
     localStorage.setItem('todos', JSON.stringify(currentData));
   }
-  if(!getDataFromLocalStorage()) {
+  if(!getTodosFromLocalStorage()) {
     localStorage.setItem('todos', JSON.stringify(seed));
   }
 }
 
-function getDataFromLocalStorage() {
+function getTodosFromLocalStorage() {
   return JSON.parse(localStorage.getItem('todos'));
 }
 
@@ -90,7 +90,7 @@ function removeTodoFromLocalStorage(todo) {
     ['one', 'two', 'three']
   3. set data to local storage
   */
-  var current = getDataFromLocalStorage();
+  var current = getTodosFromLocalStorage();
   var startIndex = current.indexOf(todo);
   current.splice(startIndex, 1);
   localStorage.setItem('todos', JSON.stringify(current));
