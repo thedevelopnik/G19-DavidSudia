@@ -18,12 +18,14 @@ function userPageCreation() {
 
 // helper functions
 function seedWidgetToLocalStorage(widget) {
-  if (widget) {
-    var currentData = getWidgetsFromLocalStorage();
-    var currentWidget = currentData.filter(function(el) {
+  function storageFilter (arr) {
+    return arr.filter(function(el) {
       return el === widget;
     });
-    if (currentWidget === true) {
+  }
+  if (widget) {
+    var currentData = getWidgetsFromLocalStorage();
+    if (storageFilter(currentData)[0] === undefined) {
       currentData.push(widget);
     }
     localStorage.setItem('widgets', JSON.stringify(currentData));

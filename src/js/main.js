@@ -47,6 +47,7 @@ function createMapWidget() {
   newDiv.innerHTML = '<h2 class="removeWidget">Traffic</h2><div id="map"></div>';
   grid.appendChild(newDiv);
   createMap(initMap);
+  seedWidgetToLocalStorage('map');
   msnry.layout();
 }
 
@@ -55,6 +56,7 @@ function createCalendarWidget() {
   newDiv.className = 'grid-item width-2 calBox animated zoomIn';
   newDiv.innerHTML = calHTML;
   grid.appendChild(newDiv);
+  seedWidgetToLocalStorage('cal');
   msnry.layout();
 }
 
