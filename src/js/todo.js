@@ -46,13 +46,10 @@ function todoListCreation () {
 
   // remove a todo
   $(document).on('click', '.todos', function() {
-    debugger;
     $(this).remove();
-    debugger;
     var strTodo = ($(this).text()).replace(/X/g, '').trim();
     // remove todo from localstorage
     removeTodoFromLocalStorage(strTodo);
-    debugger;
     msnry.layout();
   });
 }
