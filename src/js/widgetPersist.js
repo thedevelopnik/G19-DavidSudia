@@ -1,11 +1,8 @@
 var seed = ['getStart'];
 
 function userPageCreation() {
-  debugger;
   seedWidgetToLocalStorage();
-  debugger;
   var userWidgets = getWidgetsFromLocalStorage();
-  debugger;
   runWidgetFunctions(userWidgets);
 }
 
@@ -23,11 +20,15 @@ function userPageCreation() {
 function seedWidgetToLocalStorage(widget) {
   if (widget) {
     var currentData = getWidgetsFromLocalStorage();
-    currentData.push(widget);
+    var currentWidget = currentData.filter(function(el) {
+      return el === widget;
+    });
+    if (currentWidget === true) {
+      currentData.push(widget);
+    }
     localStorage.setItem('widgets', JSON.stringify(currentData));
   }
   if(!getWidgetsFromLocalStorage()) {
-    debugger;
     localStorage.setItem('widgets', JSON.stringify(seed));
   }
 }
@@ -38,7 +39,7 @@ function getWidgetsFromLocalStorage() {
 
 function runWidgetFunctions(arr) {
   console.log(arr);
-  for (i = 0; i < arr.length; i++) {
+  for (i = 0; i < 2; i++) {
     if (arr[i] === 'map') {
       createMapWidget();
     } else if (arr[i] === 'cal') {
