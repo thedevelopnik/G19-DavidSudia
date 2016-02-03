@@ -2,7 +2,7 @@
 var body = document.getElementsByTagName('body')[0];
 var header = document.getElementsByTagName('header')[0];
 var grid = document.getElementById('main-grid');
-var newDiv = document.createElement('div')
+var newDiv = document.createElement('div');
 
 
 //Initialize Masonry
@@ -14,6 +14,10 @@ var msnry = new Masonry('.grid', {
   transitionDuration: '0.4s'
 });
 
+$(document).ready(function () {
+  console.log('sanity check');
+  userPageCreation();
+});
 
 // Functions for creating each widget
 function createMapWidget() {
@@ -22,6 +26,7 @@ function createMapWidget() {
   newDiv.innerHTML = '<h2 class="removeWidget">Traffic</h2><div id="map"></div>';
   grid.appendChild(newDiv);
   createMap(initMap);
+  seedWidgetToLocalStorage('map');
   msnry.layout();
 }
 
@@ -30,6 +35,7 @@ function createCalendarWidget() {
   newDiv.className = 'grid-item width-2 calBox animated zoomIn';
   newDiv.innerHTML = calHTML;
   grid.appendChild(newDiv);
+  seedWidgetToLocalStorage('cal');
   msnry.layout();
 }
 
@@ -39,6 +45,7 @@ function createWeatherWidget() {
   newDiv.id = 'weather';
   newDiv.innerHTML = weatherHTML;
   grid.appendChild(newDiv);
+  seedWidgetToLocalStorage('weather');
   msnry.layout();
 }
 
@@ -48,6 +55,16 @@ function createTodoWidget() {
   newDiv.innerHTML = todoHTML;
   grid.appendChild(newDiv);
   todoListCreation();
+  seedWidgetToLocalStorage('todoList');
+  msnry.layout();
+}
+
+function createGettingStarted() {
+  var newDiv = document.createElement('div');
+  newDiv.className = 'grid-item width-2 animated zoomIn';
+  newDiv.id = 'welcome';
+  newDiv.innerHTML = getStartHTML;
+  grid.appendChild(newDiv);
   msnry.layout();
 }
 
@@ -82,7 +99,15 @@ $(document).ready(function () {
 function removeWidget () {
   $('.removeWidget').on('click', function() {
     var parent = $(this).parent();
-    console.log('you clicked the heading!')
+    if ($(parent).hasClass('mapBox')) {
+      removeWidgetFromLocalStorage('map');
+    } else if ($(parent).hasClass('calBox')) {
+      removeWidgetFromLocalStorage('cal');
+    } else if ($(parent).hasClass('weatherBox')) {
+      removeWidgetFromLocalStorage('weather');
+    } else if ($(parent).hasClass('todoBox')) {
+      removeWidgetFromLocalStorage(todoList);
+    }
     parent.removeClass('zoomIn');
     parent.addClass('zoomOut');
     setTimeout(function () {
@@ -95,4 +120,3 @@ function removeWidget () {
 $(document).ready(function () {
   removeWidget();
 });
-
