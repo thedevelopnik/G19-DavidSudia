@@ -18,19 +18,23 @@ $(document).ready(function () {
   console.log('sanity check');
   userPageCreation();
   $('#btn-map').on('click', function() {
+    event.stopPropagation();
     createMapWidget();
     removeWidget();
   });
   $('#btn-weather').on('click', function() {
+    event.stopPropagation();
     createWeatherWidget();
     getWeather();
     removeWidget();
   });
   $('#btn-cal').on('click', function() {
+    event.stopPropagation();
     createCalendarWidget();
     removeWidget();
   });
   $('#btn-todo').on('click', function() {
+    event.stopPropagation();
     createTodoWidget();
     removeWidget();
   });
@@ -88,6 +92,7 @@ function createGettingStarted() {
 // Enable widget removal
 function removeWidget () {
   $('.removeWidget').on('click', function() {
+    event.stopPropagation();
     var parent = $(this).parent();
     if ($(parent).hasClass('mapBox')) {
       removeWidgetFromLocalStorage('map');

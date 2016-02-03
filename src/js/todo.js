@@ -1,5 +1,5 @@
 // ** globals ** //
-var todoHTML = '<h2 class="removeWidget">ToDo List</h2><hr><br><form><div class="form-group"><input type="text" class="form-control" id="todoInput" placeholder="Enter your task..."><label><input id="big-task" type="radio" name="task-size" value="">&nbsp;Big Task</label>&nbsp;&nbsp;<label><input id="med-task" type="radio" name="task-size" value="">&nbsp;Medium Task</label>&nbsp;&nbsp;<label><input id="small-task" type="radio" name="task-size" value="">&nbsp;Small Task</label></div><button type="submit" class="btn btn-info">Submit</button></form><div id="beforeTodos"><h3>Your ToDos</h3><hr></div><div id="todoSection" class="todoContainer"></div>';
+var todoHTML = '<h2 class="removeWidget">ToDo List</h2><hr><br><form><div class="form-group"><input type="text" class="form-control" id="todoInput" placeholder="Enter your task..."><label><input id="big-task" type="radio" name="task-size" value="">&nbsp;Big Task</label>&nbsp;&nbsp;<label><input id="med-task" type="radio" name="task-size" value="">&nbsp;Medium Task</label>&nbsp;&nbsp;<label><input id="small-task" type="radio" name="task-size" value="">&nbsp;Small Task</label></div><button type="submit" id="todoSubmit" class="btn btn-info">Submit</button></form><div id="beforeTodos"><h3>Your ToDos</h3><hr></div><div id="todoSection" class="todoContainer"></div>';
 
 var seed = ['<div class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;You have no todos!</div>'];
 
@@ -15,18 +15,19 @@ function todoListCreation () {
   // append data to the dom
   appendToDom(allYourTodos);
   // handle form submission
-  $('form').on('submit', function(event) {
+  $('form').off('click', '#todoSubmit').on('click', '#todoSubmit', function(event) {
     event.preventDefault();
     var todo = $('input').val();
 
-    bigTodo = '<div class="todos bTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
+    var bigTodo = '<div class="todos bTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
 
-    medTodo = '<div class="todos mTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
+    var medTodo = '<div class="todos mTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
 
-    smallTodo = '<div class="todos sTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
+    var smallTodo = '<div class="todos sTodo box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;'+todo+'</div>';
 
     // add new todo to the dom, seed to local storage, and adjust layout
     if ($("#big-task").is(":checked")) {
+      console.log(todo);
       $('#todoSection').append(bigTodo);
       seedDataToLocalStorage(bigTodo);
       msnry.layout();
@@ -44,7 +45,8 @@ function todoListCreation () {
   });
 
   // remove a todo
-  $(document).on('click', '.todos', function(){
+  $(document).on('click', '.todos', function() {
+    event.preventPropagation();
     $(this).remove();
     var strTodo = ($(this).text()).replace(/X/g, '').trim();
     // remove todo from localstorage
@@ -91,7 +93,10 @@ function removeTodoFromLocalStorage(todo) {
   3. set data to local storage
   */
   var current = getDataFromLocalStorage();
+  console.log(current);
   var startIndex = current.indexOf(todo);
+  console.log(startIndex);
   current.splice(startIndex, 1);
+  console.log(current);
   localStorage.setItem('todos', JSON.stringify(current));
 }
