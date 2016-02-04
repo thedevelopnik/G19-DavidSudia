@@ -1,7 +1,7 @@
 // ** globals ** //
 var todoHTML = '<h2 class="removeWidget">ToDo List</h2><hr><br><form><div class="form-group"><input type="text" class="form-control" id="todoInput" placeholder="Enter your task..."><label><input id="big-task" type="radio" name="task-size" value="">&nbsp;Big Task</label>&nbsp;&nbsp;<label><input id="med-task" type="radio" name="task-size" value="">&nbsp;Medium Task</label>&nbsp;&nbsp;<label><input id="small-task" type="radio" name="task-size" value="">&nbsp;Small Task</label></div><button type="submit" id="todoSubmit" class="btn btn-info">Submit</button></form><div id="beforeTodos"><h3>Your ToDos</h3><hr></div><div id="todoSection" class="todoContainer"></div>';
 
-var seed = ['<div class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;You have no todos!</div>'];
+var todoSeed = ['<div class="todos box-shadow bottom-margin"><button class="btn btn-success btn-sm">&#10003</button>&nbsp;You have no todos!</div>'];
 
 
 // ** dom manipulation ** //
@@ -63,7 +63,7 @@ function seedDataToLocalStorage(todo) {
     localStorage.setItem('todos', JSON.stringify(currentData));
   }
   if(!getDataFromLocalStorage()) {
-    localStorage.setItem('todos', JSON.stringify(seed));
+    localStorage.setItem('todos', JSON.stringify(todoSeed));
   }
 }
 
