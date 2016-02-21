@@ -56,6 +56,7 @@ function todoListCreation () {
 
 // ** helper functions ** //
 
+// sends things to local storage once they've been entered and stores as JSON object
 function seedDataToLocalStorage(todo) {
   if (todo) {
     var currentData = getDataFromLocalStorage();
@@ -67,16 +68,21 @@ function seedDataToLocalStorage(todo) {
   }
 }
 
+
+// retrieves data from local storage and parses the JSON object
 function getDataFromLocalStorage() {
   return JSON.parse(localStorage.getItem('todos'));
 }
 
+
+// appends todos to the DOM
 function appendToDom(arr) {
   arr.forEach(function(todo){
     $('#todoSection').append(todo);
   });
 }
 
+// removes todos from local storage
 function removeTodoFromLocalStorage(todo) {
   /*
   1. get data from local storage
