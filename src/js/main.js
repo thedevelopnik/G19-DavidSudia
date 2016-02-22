@@ -14,10 +14,16 @@ var msnry = new Masonry('.grid', {
   transitionDuration: '0.4s'
 });
 
+
+// DOM manipulation
 $(document).ready(function () {
   console.log('sanity check');
+  // retrieve user's previous widgets from memory
   userPageCreation();
+  // enable widget removal on page
   removeWidget();
+
+  // set listeners for clicks on each widget button
   $('#btn-map').on('click', function() {
     event.stopPropagation();
     createMapWidget();
