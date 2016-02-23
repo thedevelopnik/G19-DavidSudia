@@ -1,8 +1,10 @@
+// establish HTML to populate into DOM
 var calHTML = '<h2 class="removeWidget">Upcoming Events</h2><div id="authorize-div"><span>Authorize access to Google Calendar API</span><!--Button for the user to click to initiate auth sequence --><button id="authorize-button" onclick="handleAuthClick(event)">Authorize</button></div><article id="output"></article>';
 
-
+// API key
 var CLIENT_ID = '723061971439-dv1pbtq741e2dk5n05psbrnufa99p4cj';
 
+// set scopes for google API that client allows site to use
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
 /**
@@ -70,9 +72,14 @@ function listUpcomingEvents() {
     'orderBy': 'startTime'
   });
 
+  // what to do with data
   request.execute(function(resp) {
     var events = resp.items;
+
+    // add header to events
     appendCalList('Your upcoming events:');
+
+    // change date from ISO to standard format
     function convertDate(date) {
       var dateStr = date.toString();
       var formattedDate = new Date(dateStr);
@@ -88,8 +95,10 @@ function listUpcomingEvents() {
           when = event.start.dateTime;
           var eventDate = convertDate(when);
         }
+        // append events
         appendCalList('<p>' + event.summary + ' (' + eventDate + ')</p>');
       }
+      // if no events, append message
     } else {
       appendCalList('No upcoming events found.');
     }
@@ -105,7 +114,7 @@ function listUpcomingEvents() {
  */
 
 
-
+// how to create the list on the DOM
 function appendCalList(message) {
   var art = document.getElementById('output');
   var newListItem = document.createElement('p');
