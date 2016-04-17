@@ -1,8 +1,13 @@
-# Dave Sudia's Front-End Project Proposal
+# Dave Sudia's Front-End Project
 
 ## Uses and Users
 My project is a daily dashboard site to aid productivity. Its use is like the "Today" section of iOS' notification center. It displays local weather and traffic information, and the user's calendar and tasks. Users can visit the site to plan their day. They see information based on location and personal input. The site is useful to people who are at a computer most of the day who want quick access to relevant information.
 
+### Screenshot
+![site screenshot](./welcome-to-hq-scshot.png)
+
+
+### Mockup
 ![site mockup](./mockup1.png)
 
 ## Technologies Involved
